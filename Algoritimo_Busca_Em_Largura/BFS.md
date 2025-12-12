@@ -11,7 +11,11 @@
 ###
 
 <div align="center">
-  <img height="200" src=""  />
+  <img 
+    height="200"
+    alt="Exemplo de Grafo"
+    src="https://github.com/user-attachments/assets/2d270b77-2df2-4ce4-b09c-8d875e251a7a"
+  />
 </div>
 
 ###
