@@ -1,14 +1,16 @@
 
 
-A = [
-    [0, 1, 0, 0, 0],  
-    [1, 0, 1, 1, 0],  
-    [0, 1, 0, 1, 0],  
-    [0, 1, 1, 0, 1],  
-    [0, 0, 0, 1, 0]   
+#Aqui temos uma matriz que representa as conexões de um grafo.
+#Caso exista valor 1 quer dizer que a uma conexão com o proximo nivel.
+A = [#A B  C  D  E
+    [0, 1, 0, 0, 0],#A  
+    [1, 0, 1, 1, 0],#B 
+    [0, 1, 0, 1, 0],#C 
+    [0, 1, 1, 0, 1],#D  
+    [0, 0, 0, 1, 0] #E 
     ]
 
-# Mapeamento para nomes de cidades (para facilitar a leitura da saída)
+# Aqui cada indice representa uma letra, poderiam ser cidades também.
 nomes_cidades = {
     0: "A",
     1: "B",
@@ -17,20 +19,12 @@ nomes_cidades = {
     4: "E"
 }
 
-for i in range(len(A)):
-    print("------------------------------------------------------")
-    for j in range(len(A)):
-        if A[i][j] == 1:
-            print(f"{nomes_cidades[i]} está conectado a {nomes_cidades[j]}")
-    print("------------------------------------------------------")        
-
-
 def obter_vizinhos(cidade_indice, matriz_adjacencia):
-    """Retorna uma lista de índices dos vizinhos de uma cidade."""
+    """Usamos essa função para achar vizinhos do nivel, por exemplo o vizinho de 0(A) é apenas o 1(B)"""
     vizinhos = []
     num_cidades = len(matriz_adjacencia)
     for i in range(num_cidades):
-        # Se há uma conexão (valor 1)
+        # Se existir um vizinho ele é adicionado na lista de viznhos
         if matriz_adjacencia[cidade_indice][i] == 1:
             vizinhos.append(i)
     return vizinhos
@@ -50,8 +44,11 @@ def busca_largura(inicio, destino, matriz_adjacencia, nomes_cidades):
     visitados = {inicio}
 
     while fila:
-        caminho_atual = fila.popleft() #popleft toma o primeiro
-        no_atual = caminho_atual[-1] #o ultimo elemento de 
+        print(fila)
+        caminho_atual = fila.popleft() #popleft toma o primeiro e retrona uma lista
+        print(caminho_atual)
+        no_atual = caminho_atual[-1] #o ultimo elemento
+        
 
         for vizinho in obter_vizinhos(no_atual, matriz_adjacencia):
             if vizinho not in visitados:
@@ -67,6 +64,7 @@ def busca_largura(inicio, destino, matriz_adjacencia, nomes_cidades):
                 # Marca como visitado e adiciona à fila para exploração futura
                 visitados.add(vizinho)
                 fila.append(caminho_percorrido)
+                
 
     # Se a fila esvaziar e o destino não for encontrado
     return None
@@ -79,9 +77,6 @@ print(f"--- Busca em Largura (BFS) de {nomes_cidades[inicio_teste]} para {nomes_
 caminho_bfs = busca_largura(inicio_teste, destino_teste, A, nomes_cidades)
 
 if caminho_bfs:
-    print(f"✅ Caminho BFS encontrado (o mais curto): {' -> '.join(caminho_bfs)}")
+    print(f" Caminho BFS encontrado (o mais curto): {' -> '.join(caminho_bfs)}")
 else:
-    print("❌ Nenhum caminho encontrado por BFS.")
-
-
-
+    print(" Nenhum caminho encontrado por BFS.")
