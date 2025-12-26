@@ -6,8 +6,8 @@ from random import randint, random
 objetivo = (50,50)
 
 
-num_individuos = 20
-num_genes = 5
+num_individuos = 25
+num_genes = 6
 probabilidade_mutacao = 0.4
 def iniciarIndividuos(num_individuos, num_genes):
     individuos = []
@@ -88,7 +88,7 @@ def populacao_nova(melhores):
                      "cromossomo": cromossomo_novo}
 
        individuos_novos.append(individuos)
-    return individuos_novos
+    return individuos_novos + melhores
 
 
 populacao = iniciarIndividuos(num_individuos,num_genes)
