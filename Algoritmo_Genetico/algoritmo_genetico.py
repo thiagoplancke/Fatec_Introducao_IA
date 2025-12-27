@@ -6,8 +6,8 @@ from random import randint, random
 objetivo = (50,50)
 
 
-num_individuos = 25
-num_genes = 6
+num_individuos = 20
+num_genes = 8
 probabilidade_mutacao = 0.4
 def iniciarIndividuos(num_individuos, num_genes):
     individuos = []
@@ -17,7 +17,7 @@ def iniciarIndividuos(num_individuos, num_genes):
         cromossomo = []
 
         for j in range(num_genes):
-            gene = [randint(-2,2), randint(-2,2)]  # movimento
+            gene = [randint(-2,2), randint(-2,2)]  
             cromossomo.append(gene)
 
         individuo = {
@@ -64,9 +64,9 @@ def populacao_nova(melhores):
     for i in range(num_individuos-2):
        cromossomo_novo = []
        for j in range(num_genes):
-           if j < num_genes*0.60:
+           if j < num_genes*0.80:
                gene_novo = melhores[0]["cromossomo"][j].copy()
-               if random() <= 0.4:
+               if random() <= 0.1:
                     gene_novo[0] += randint(-1,1)  
                     gene_novo[1] += randint(-1,1)
                     cromossomo_novo.append(gene_novo)
@@ -76,7 +76,7 @@ def populacao_nova(melhores):
            else:
                gene_novo = melhores[1]["cromossomo"][j].copy()
                
-               if random() <= 0.4:
+               if random() <= 0.1:
                     gene_novo[0] += randint(-1,1)  
                     gene_novo[1] += randint(-1,1)
                     cromossomo_novo.append(gene_novo)
