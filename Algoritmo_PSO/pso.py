@@ -1,0 +1,6 @@
+
+
+VELOCIDADE = None
+INERCIA = None
+PBEST = None
+GBEST = None
