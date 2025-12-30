@@ -10,7 +10,7 @@
 
 ###
 
-<p align="left">🎯 Goals: <br>BFS ✔️<br>DFS<br>Algoritmo Genético<br>Algoritmo de Enxame de Particulas</p>
+<p align="left">🎯 Goals: <br>BFS ✔️<br>DFS ✔️<br>Algoritmo Genético ✔️<br>Algoritmo de Enxame de Particulas</p>
 
 ###
 
